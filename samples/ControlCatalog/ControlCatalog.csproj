@@ -3,6 +3,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>    
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Update="**\*.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
@@ -12,6 +15,7 @@
     </AvaloniaResource>
     <AvaloniaResource Include="Assets\*" />
     <AvaloniaResource Include="Assets\Fonts\*" />
+    <AvaloniaResource Include="Assets\Albums\*" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\Fonts\SourceSansPro-Bold.ttf" />
@@ -25,7 +29,8 @@
     <ProjectReference Include="..\..\packages\Avalonia\Avalonia.csproj" />
     <ProjectReference Include="..\..\src\Avalonia.Diagnostics\Avalonia.Diagnostics.csproj" />
     <ProjectReference Include="..\..\src\Avalonia.ReactiveUI\Avalonia.ReactiveUI.csproj" />
-    <ProjectReference Include="..\..\src\Avalonia.Controls.DataGrid\Avalonia.Controls.DataGrid.csproj" />
+    <ProjectReference Include="..\..\src\Avalonia.Controls.DataGrid\Avalonia.Controls.DataGrid.csproj" />    
+    <PackageReference Include="SkiaSharp" Version="1.68.2.1" />
   </ItemGroup>
   
   <Import Project="..\..\build\Serilog.props" />

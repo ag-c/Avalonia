@@ -67,7 +67,11 @@ namespace ControlCatalog.NetCore
                     EnableMultitouch = true,
                     AllowEglInitialization = true
                 })
-                .UseSkia()
+                .With(new SkiaOptions
+                {
+                     MaxGpuResourceSizeBytes = 2048000000
+                })
+                .UseDirect2D1()            
                 .UseReactiveUI()
                 .UseManagedSystemDialogs();
 
